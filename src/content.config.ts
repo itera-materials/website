@@ -30,9 +30,7 @@ const home = defineCollection({
     partners: z.strictObject({
       title: z.string(),
       intro: z.string(),
-      groups: z.array(block).min(1),
-      sectorsTitle: z.string(),
-      sectors: z.array(z.string()).min(1),
+      groups: z.array(block).length(2),
     }),
     contact: z.strictObject({ title: z.string(), body: z.string() }),
     footer: z.strictObject({ hosting: z.string() }),

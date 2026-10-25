@@ -85,18 +85,12 @@ const year = new Date().getFullYear();
         <h2>{t.partners.title}</h2>
         <p class="intro">{t.partners.intro}</p>
         <div class="two-col">
-          <div>
-            {t.partners.groups.map((g) => (
-              <>
-                <h3>{g.title}</h3>
-                <p>{g.body}</p>
-              </>
-            ))}
-          </div>
-          <div>
-            <h3>{t.partners.sectorsTitle}</h3>
-            <ul class="pills">{t.partners.sectors.map((s) => <li>{s}</li>)}</ul>
-          </div>
+          {t.partners.groups.map((g) => (
+            <div>
+              <h3>{g.title}</h3>
+              <p>{g.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

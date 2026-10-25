@@ -40,17 +40,12 @@ approach:
 
 partners:
   title: "Who we work with"
-  intro: "We are looking for partners across the composites value chain."
+  intro: "We work with partners on both sides of the composites value chain."
   groups:
     - title: "Companies with composite waste"
-      body: "Manufacturers and operators with carbon fibre scrap or end-of-life parts looking for a recycling route."
+      body: "We take in carbon fibre waste from almost any industry: production offcuts, prepreg scrap and end-of-life parts, including from wind energy."
     - title: "Users of recycled fibre"
-      body: "Companies that want to bring recycled carbon fibre into their materials and products."
-  sectorsTitle: "Sectors"
-  sectors:
-    - "Wind energy"
-    - "Sports & leisure"
-    - "Industrial composites"
+      body: "Every application has its own requirements, and some industries set very strict ones. We supply applications where the recycled fibre meets them, starting with wind energy."
 
 contact:
   title: "Let's talk"
