@@ -1,9 +1,9 @@
 ---
-// Privacy notice (D021). Text from src/content/privacy/<lang>.yaml; the analytics section shows
-// only while Plausible is on (src/analytics.ts).
+// Privacy notice (D021, D022). Text from src/content/privacy/<lang>.yaml; the analytics section
+// shows only while GoatCounter is on (src/analytics.ts).
 import "../../vendor/design-system/dist/itera.css";
 import { getEntry } from "astro:content";
-import { plausibleScript } from "../analytics";
+import { goatcounterEndpoint } from "../analytics";
 import Base from "../layouts/Base.astro";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
@@ -17,7 +17,7 @@ const entry = await getEntry("privacy", lang);
 if (!entry) throw new Error(`missing src/content/privacy/${lang}.yaml`);
 const t = entry.data;
 const paths = { en: "/privacy/", fr: "/fr/confidentialite/" };
-const sections = t.sections.filter((s) => !s.analytics || plausibleScript);
+const sections = t.sections.filter((s) => !s.analytics || goatcounterEndpoint);
 ---
 
 <Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription} paths={paths}>

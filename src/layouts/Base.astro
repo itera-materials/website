@@ -1,8 +1,8 @@
 ---
 // Page shell: head, language alternates, social preview, organisation data for search engines and,
-// when switched on, Plausible (D021). The page imports the design-system stylesheet (inlined).
+// when switched on, GoatCounter (D022). The page imports the design-system stylesheet (inlined).
 import favicon from "../../vendor/design-system/dist/logo/itera-favicon.svg?url";
-import { PLAUSIBLE_INIT, plausibleScript } from "../analytics";
+import { GOATCOUNTER_INTEGRITY, GOATCOUNTER_SCRIPT, goatcounterEndpoint } from "../analytics";
 
 interface Props {
   lang: "en" | "fr";
@@ -49,8 +49,16 @@ const organisation = {
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href={favicon} type="image/svg+xml" />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(organisation)} />
-    {plausibleScript && <script async is:inline src={plausibleScript}></script>}
-    {plausibleScript && <script is:inline set:html={PLAUSIBLE_INIT} />}
+    {goatcounterEndpoint && (
+      <script
+        is:inline
+        async
+        data-goatcounter={goatcounterEndpoint}
+        src={GOATCOUNTER_SCRIPT}
+        crossorigin="anonymous"
+        integrity={GOATCOUNTER_INTEGRITY}
+      ></script>
+    )}
   </head>
   <body>
     <slot />

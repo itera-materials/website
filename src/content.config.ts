@@ -35,7 +35,7 @@ const home = defineCollection({
   }),
 });
 
-// Privacy notice (D021): sections marked `analytics: true` show only while Plausible is on.
+// Privacy notice (D021, D022): sections marked `analytics: true` show only while GoatCounter is on.
 const privacy = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "src/content/privacy" }),
   schema: z.strictObject({

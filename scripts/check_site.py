@@ -2,8 +2,8 @@
 
 EN/FR completeness is enforced by the content schemas at build time (src/content.config.ts);
 this script checks what the schemas cannot: every page exists with the right language and
-alternates, the custom domain is set, the only scripts are JSON-LD and (when switched on)
-Plausible (D021), there are no other third-party URLs (D005), the sitemap, robots.txt and preview
+alternates, the custom domain is set, the only scripts are JSON-LD and (when switched on) the
+pinned GoatCounter script (D022), there are no other third-party URLs (D005), the sitemap, robots.txt and preview
 images are in place, and the sources contain no colour literals (style comes only from the
 design system).
 """
@@ -24,9 +24,9 @@ PAGES = [
     ("en", "privacy/index.html"),
     ("fr", "fr/confidentialite/index.html"),
 ]
-PLAUSIBLE_SRC = re.compile(r"^https://plausible\.io/js/pa-[A-Za-z0-9_-]+\.js$")
 ALLOWED_URL = re.compile(
-    rf"^https://{re.escape(DOMAIN)}/|^http://www\.w3\.org/2000/svg$|^https://schema\.org$|^https://plausible\.io/js/pa-[A-Za-z0-9_-]+\.js$"
+    rf"^https://{re.escape(DOMAIN)}/|^http://www\.w3\.org/2000/svg$|^https://schema\.org$"
+    r"|^https://gc\.zgo\.at/count\.v\d+\.js$|^https://[a-z0-9-]+\.goatcounter\.com/count$"
 )
 URL = re.compile(r"""(?:https?:)?//[^\s"'<>)]+""")
 SCRIPT = re.compile(r"<script(?P<attrs>[^>]*)>(?P<body>.*?)</script>", re.S)
@@ -34,29 +34,34 @@ COLOUR_LITERAL = re.compile(r"#[0-9a-fA-F]{3,8}\b|\b(rgba?|hsla?|oklch)\(")
 MAX_PAGE_BYTES = 60_000
 
 
-def plausible_init(root: Path) -> str:
-    """The exact inline init line src/analytics.ts allows."""
+def goatcounter(root: Path) -> dict[str, str]:
+    """The exact script attributes src/analytics.ts allows (empty when analytics is off)."""
     text = (root / "src/analytics.ts").read_text(encoding="utf-8")
-    match = re.search(r'PLAUSIBLE_INIT =\s*"([^"]+)"', text)
-    return match.group(1) if match else ""
+    values = dict(re.findall(r'export const (GOATCOUNTER_\w+) = "([^"]*)"', text))
+    if not values.get("GOATCOUNTER_CODE"):
+        return {}
+    return {
+        "src": values["GOATCOUNTER_SCRIPT"],
+        "integrity": values["GOATCOUNTER_INTEGRITY"],
+        "data-goatcounter": f"https://{values['GOATCOUNTER_CODE']}.goatcounter.com/count",
+        "crossorigin": "anonymous",
+    }
 
 
-def script_problems(page: str, html: str, init: str) -> list[str]:
+def script_problems(page: str, html: str, allowed: dict[str, str]) -> list[str]:
     problems = []
     for script in SCRIPT.finditer(html):
         attrs, body = script.group("attrs"), script.group("body").strip()
-        src = re.search(r'src="([^"]+)"', attrs)
+        found = dict(re.findall(r'([\w-]+)="([^"]*)"', attrs))
         if 'type="application/ld+json"' in attrs:
             try:
                 json.loads(body)
             except json.JSONDecodeError as error:
                 problems.append(f"dist/{page}: JSON-LD does not parse ({error})")
-        elif src and PLAUSIBLE_SRC.match(src.group(1)) and not body:
-            continue
-        elif not src and init and body == init:
+        elif allowed and not body and all(found.get(k) == v for k, v in allowed.items()):
             continue
         else:
-            problems.append(f"dist/{page}: script not allowed ({attrs.strip() or body[:40]}); only JSON-LD and Plausible")
+            problems.append(f"dist/{page}: script not allowed ({attrs.strip() or body[:40]}); only JSON-LD and GoatCounter")
     return problems
 
 
@@ -64,7 +69,7 @@ def check(dist: Path = DIST, root: Path = ROOT) -> list[str]:
     problems = []
     if (dist / "CNAME").read_text(encoding="utf-8").strip() != DOMAIN if (dist / "CNAME").is_file() else True:
         problems.append(f"dist/CNAME must contain exactly {DOMAIN} (public/CNAME)")
-    init = plausible_init(root)
+    allowed = goatcounter(root)
     for lang, page in PAGES:
         path = dist / page
         if not path.is_file():
@@ -82,7 +87,7 @@ def check(dist: Path = DIST, root: Path = ROOT) -> list[str]:
             problems.append(f"dist/{page}: no Organization JSON-LD")
         if 'property="og:image"' not in html:
             problems.append(f"dist/{page}: no og:image")
-        problems += script_problems(page, html, init)
+        problems += script_problems(page, html, allowed)
         if len(html.encode()) > MAX_PAGE_BYTES:
             problems.append(f"dist/{page}: {len(html.encode())} bytes, over the {MAX_PAGE_BYTES} budget")
     sitemap = dist / "sitemap.xml"
