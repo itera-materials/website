@@ -16,9 +16,13 @@
       "Bash(gh repo list *)",
       "Bash(gh repo view *)",
       "Bash(gh api repos/itera-materials/*/pages *)",
-      "Bash(dig *)"
+      "Bash(dig *)",
+      "Bash(npm ci*)",
+      "Bash(npm run *)",
+      "Bash(typst compile *)"
     ],
     "ask": [
+      "Bash(npm install *)",
       "Bash(git push --force *)",
       "Bash(git push -f *)",
       "Bash(gh repo delete *)",

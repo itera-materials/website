@@ -1,0 +1,62 @@
+# Texte de la page d'accueil, français. Mêmes clés que en.yaml (sinon la construction échoue).
+# Espace insécable avant « : ; ! ? » : écrire   entre guillemets doubles.
+
+meta:
+  title: "Itera Materials · Fibre de carbone recyclée"
+  description: "Itera Materials récupère la fibre de carbone des déchets composites par solvolyse et donne une seconde vie à un matériau de grande valeur."
+  ogDescription: "Fibre de carbone recyclée à partir de déchets composites, par solvolyse."
+
+skipLink: "Aller au contenu"
+
+nav:
+  label: "Navigation principale"
+  approach: "Notre approche"
+  partners: "Collaborer"
+  contact: "Contact"
+  languages: "Langue"
+
+hero:
+  eyebrow: "Fibre de carbone recyclée"
+  title: "Une seconde vie pour la fibre de carbone."
+  lead: "Itera Materials récupère la fibre de carbone contenue dans les déchets composites et la réintroduit dans l'industrie : un résidu difficile à recycler devient une matière première de valeur."
+  primary: "Nous contacter"
+  secondary: "Notre approche"
+
+problem:
+  title: "Un matériau de grande valeur, trop souvent perdu"
+  body: "Les composites à fibre de carbone rendent avions, véhicules, éoliennes et équipements sportifs plus légers et plus résistants. Produire cette fibre demande beaucoup d'énergie, et pourtant les chutes de production et les pièces en fin de vie sont encore largement mises en décharge ou incinérées."
+  callout: "Nous pensons que cette fibre doit être récupérée et réutilisée."
+
+approach:
+  title: "Notre approche : la solvolyse"
+  intro: "Plutôt que de brûler la résine, la solvolyse la dissout grâce à un procédé chimique, ce qui permet de séparer les fibres de carbone pour les nettoyer et les réutiliser."
+  steps:
+    - title: "Collecter"
+      body: "Les déchets composites : chutes de production, rebuts de préimprégnés et pièces en fin de vie."
+    - title: "Récupérer"
+      body: "La solvolyse dissout la matrice de résine et libère les fibres de carbone."
+    - title: "Réintroduire"
+      body: "La fibre de carbone recyclée retrouve sa place dans de nouveaux produits et applications."
+
+partners:
+  title: "Avec qui nous travaillons"
+  intro: "Nous recherchons des partenaires sur toute la chaîne de valeur des composites."
+  groups:
+    - title: "Producteurs de déchets composites"
+      body: "Industriels et exploitants disposant de chutes ou de pièces en fibre de carbone en fin de vie, à la recherche d'une filière de recyclage."
+    - title: "Utilisateurs de fibre recyclée"
+      body: "Entreprises souhaitant intégrer de la fibre de carbone recyclée dans leurs matériaux et leurs produits."
+  sectorsTitle: "Secteurs"
+  sectors:
+    - "Aéronautique"
+    - "Automobile"
+    - "Éolien"
+    - "Sports & loisirs"
+    - "Composites industriels"
+
+contact:
+  title: "Parlons-en"
+  body: "Que vous ayez des déchets composites, besoin de fibre de carbone recyclée ou envie de soutenir notre projet, nous serions ravis d'échanger avec vous."
+
+footer:
+  hosting: "Hébergé par GitHub Pages · Sans cookies ni suivi"

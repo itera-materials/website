@@ -1,0 +1,39 @@
+---
+// Page shell: head, language alternates, design-system styles (inlined at build).
+import "../../vendor/design-system/dist/itera.css";
+import favicon from "../../vendor/design-system/dist/logo/itera-favicon.svg?url";
+
+interface Props {
+  lang: "en" | "fr";
+  title: string;
+  description: string;
+  ogDescription: string;
+}
+
+const { lang, title, description, ogDescription } = Astro.props;
+const paths = { en: "/", fr: "/fr/" };
+const url = (l: "en" | "fr") => new URL(paths[l], Astro.site).href;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url(lang)} />
+    <link rel="alternate" hreflang="en" href={url("en")} />
+    <link rel="alternate" hreflang="fr" href={url("fr")} />
+    <link rel="alternate" hreflang="x-default" href={url("en")} />
+    <meta property="og:title" content="Itera Materials" />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={url(lang)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_GB"} />
+    <link rel="icon" href={favicon} type="image/svg+xml" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

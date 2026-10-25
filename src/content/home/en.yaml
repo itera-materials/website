@@ -1,0 +1,62 @@
+# Home page text, English. Same keys as fr.yaml (the build fails if one is missing).
+# Claims about technology, partners, figures or patents need Vanessa's approval first (D006).
+
+meta:
+  title: "Itera Materials · Recycled carbon fibre"
+  description: "Itera Materials recovers carbon fibre from composite waste through solvolysis, giving a high-value material a second life."
+  ogDescription: "Recycled carbon fibre from composite waste, through solvolysis."
+
+skipLink: "Skip to content"
+
+nav:
+  label: "Main"
+  approach: "Approach"
+  partners: "Work with us"
+  contact: "Contact"
+  languages: "Language"
+
+hero:
+  eyebrow: "Recycled carbon fibre"
+  title: "Carbon fibre, given a second life."
+  lead: "Itera Materials recovers carbon fibre from composite waste and returns it to industry, turning a hard-to-recycle residue into a valuable raw material."
+  primary: "Get in touch"
+  secondary: "Our approach"
+
+problem:
+  title: "A high-value material that too often goes to waste"
+  body: "Carbon fibre composites make aircraft, vehicles, wind turbines and sports equipment lighter and stronger. Producing the fibre is energy-intensive, yet production scrap and end-of-life parts are still widely landfilled or incinerated."
+  callout: "We believe that fibre should be recovered and used again."
+
+approach:
+  title: "Our approach: solvolysis"
+  intro: "Rather than burning the resin away, solvolysis uses a chemical process to dissolve it, separating the carbon fibres so they can be cleaned and reused."
+  steps:
+    - title: "Collect"
+      body: "Composite waste: production offcuts, prepreg scrap and end-of-life parts."
+    - title: "Recover"
+      body: "Solvolysis dissolves the resin matrix and frees the carbon fibres."
+    - title: "Return"
+      body: "Recycled carbon fibre goes back into new products and applications."
+
+partners:
+  title: "Who we work with"
+  intro: "We are looking for partners across the composites value chain."
+  groups:
+    - title: "Companies with composite waste"
+      body: "Manufacturers and operators with carbon fibre scrap or end-of-life parts looking for a recycling route."
+    - title: "Users of recycled fibre"
+      body: "Companies that want to bring recycled carbon fibre into their materials and products."
+  sectorsTitle: "Sectors"
+  sectors:
+    - "Aerospace"
+    - "Automotive"
+    - "Wind energy"
+    - "Sports & leisure"
+    - "Industrial composites"
+
+contact:
+  title: "Let's talk"
+  body: "Whether you have composite waste, need recycled carbon fibre or want to support our work, we would like to hear from you."
+
+footer:
+  hosting: "Hosted by GitHub Pages · No cookies, no tracking"
