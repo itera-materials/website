@@ -1,2 +1,9 @@
+# Secrets: never committed
+.env
+.env.*
+*.age.key
+*.pem
+
+# Local
 .DS_Store
 .claude/settings.local.json

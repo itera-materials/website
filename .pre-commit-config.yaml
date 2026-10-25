@@ -1,0 +1,9 @@
+# Local hooks only: tools come from the laptop (brew), nothing is downloaded.
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks (staged changes)
+        entry: gitleaks git --pre-commit --staged --redact
+        language: system
+        pass_filenames: false
