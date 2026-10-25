@@ -24,11 +24,10 @@ test: build
 serve:
     npm run dev
 
-# Copy design-system release vVERSION (dist) into vendor/FOLDER (D019: `design-system` for the
-# industrial version, `design-system-classic` for the classic one)
-sync-design-system VERSION FOLDER="design-system":
+# Copy design-system release vVERSION (dist) from ../design-system into vendor/design-system
+sync-design-system VERSION:
     git -C ../design-system rev-parse -q --verify "refs/tags/v{{VERSION}}" >/dev/null || { echo "design-system has no tag v{{VERSION}}"; exit 1; }
-    rm -rf vendor/{{FOLDER}} && mkdir -p vendor/{{FOLDER}}
-    git -C ../design-system archive "v{{VERSION}}" dist | tar -x -C vendor/{{FOLDER}}
-    echo "{{VERSION}}" > vendor/{{FOLDER}}/VERSION
-    @echo "vendor/{{FOLDER}} = design-system {{VERSION}}. Set release.{{FOLDER}}: {{VERSION}} in the workspace repos.yaml."
+    rm -rf vendor/design-system && mkdir -p vendor/design-system
+    git -C ../design-system archive "v{{VERSION}}" dist | tar -x -C vendor/design-system
+    echo "{{VERSION}}" > vendor/design-system/VERSION
+    @echo "vendor/design-system = design-system {{VERSION}}. Set release.design-system: {{VERSION}} in the workspace repos.yaml."

@@ -15,13 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 DOMAIN = "iteramaterials.com"
-# (language, page, indexed): the classic version is live, the industrial one a hidden preview (D019).
-PAGES = [
-    ("en", "index.html", True),
-    ("fr", "fr/index.html", True),
-    ("en", "preview/industrial/index.html", False),
-    ("fr", "fr/preview/industrial/index.html", False),
-]
+PAGES = [("en", "index.html"), ("fr", "fr/index.html")]
 ALLOWED_URL = re.compile(rf"^https://{re.escape(DOMAIN)}/|^http://www\.w3\.org/2000/svg$")
 URL = re.compile(r"""(?:https?:)?//[^\s"'<>)]+""")
 COLOUR_LITERAL = re.compile(r"#[0-9a-fA-F]{3,8}\b|\b(rgba?|hsla?|oklch)\(")
@@ -32,7 +26,7 @@ def check(dist: Path = DIST, root: Path = ROOT) -> list[str]:
     problems = []
     if (dist / "CNAME").read_text(encoding="utf-8").strip() != DOMAIN if (dist / "CNAME").is_file() else True:
         problems.append(f"dist/CNAME must contain exactly {DOMAIN} (public/CNAME)")
-    for lang, page, indexed in PAGES:
+    for lang, page in PAGES:
         path = dist / page
         if not path.is_file():
             problems.append(f"dist/{page} missing")
@@ -40,8 +34,8 @@ def check(dist: Path = DIST, root: Path = ROOT) -> list[str]:
         html = path.read_text(encoding="utf-8")
         if f'<html lang="{lang}"' not in html:
             problems.append(f"dist/{page}: <html lang> is not {lang}")
-        if indexed == ('name="robots" content="noindex' in html):
-            problems.append(f"dist/{page}: {'must not' if indexed else 'must'} carry robots noindex")
+        if 'name="robots" content="noindex' in html:
+            problems.append(f"dist/{page}: must not carry robots noindex")
         for alt in ("en", "fr"):
             if f'hreflang="{alt}"' not in html:
                 problems.append(f"dist/{page}: no hreflang alternate for {alt}")
@@ -65,7 +59,7 @@ def main() -> int:
     for problem in problems:
         print(f"  ✗ {problem}")
     if not problems:
-        sizes = ", ".join(f"{page} {(DIST / page).stat().st_size // 1024} KB" for _, page, _ in PAGES)
+        sizes = ", ".join(f"{page} {(DIST / page).stat().st_size // 1024} KB" for _, page in PAGES)
         print(f"  ✓ both languages, alternates, CNAME, no scripts, no third-party URLs ({sizes})")
     return 1 if problems else 0
 
