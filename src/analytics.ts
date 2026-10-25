@@ -1,7 +1,7 @@
 // Plausible Analytics (D021): cookieless, EU-hosted. Paste the site's script id from Plausible →
 // Site settings → Site installation: the part after "pa-" in https://plausible.io/js/pa-XXXX.js.
 // Empty = analytics off (no script on the pages, no analytics paragraph in the privacy notice).
-export const PLAUSIBLE_ID = "";
+export const PLAUSIBLE_ID = "31zkfmpb8Sj8DhacW8swa";
 
 export const plausibleScript = PLAUSIBLE_ID ? `https://plausible.io/js/pa-${PLAUSIBLE_ID}.js` : null;
 
