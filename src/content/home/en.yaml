@@ -48,8 +48,6 @@ partners:
       body: "Companies that want to bring recycled carbon fibre into their materials and products."
   sectorsTitle: "Sectors"
   sectors:
-    - "Aerospace"
-    - "Automotive"
     - "Wind energy"
     - "Sports & leisure"
     - "Industrial composites"

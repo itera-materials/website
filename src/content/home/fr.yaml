@@ -48,8 +48,6 @@ partners:
       body: "Entreprises souhaitant intégrer de la fibre de carbone recyclée dans leurs matériaux et leurs produits."
   sectorsTitle: "Secteurs"
   sectors:
-    - "Aéronautique"
-    - "Automobile"
     - "Éolien"
     - "Sports & loisirs"
     - "Composites industriels"
