@@ -1,6 +1,6 @@
 ---
-// Page shell: head, language alternates, design-system styles (inlined at build).
-import "../../vendor/design-system/dist/itera.css";
+// Page shell: head and language alternates. Each page version imports its own design-system
+// stylesheet (inlined at build), so the classic and industrial versions never mix (D019).
 import favicon from "../../vendor/design-system/dist/logo/itera-favicon.svg?url";
 
 interface Props {
@@ -8,10 +8,11 @@ interface Props {
   title: string;
   description: string;
   ogDescription: string;
+  paths?: { en: string; fr: string };
+  noindex?: boolean;
 }
 
-const { lang, title, description, ogDescription } = Astro.props;
-const paths = { en: "/", fr: "/fr/" };
+const { lang, title, description, ogDescription, paths = { en: "/", fr: "/fr/" }, noindex = false } = Astro.props;
 const url = (l: "en" | "fr") => new URL(paths[l], Astro.site).href;
 ---
 
@@ -22,6 +23,7 @@ const url = (l: "en" | "fr") => new URL(paths[l], Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={url(lang)} />
     <link rel="alternate" hreflang="en" href={url("en")} />
     <link rel="alternate" hreflang="fr" href={url("fr")} />

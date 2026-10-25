@@ -1,80 +1,54 @@
 # Home page text, English. Same keys as fr.yaml (the build fails if one is missing).
-# Claims about technology, partners, figures or patents need Vanessa's approval first (D006):
-# the "why" strip stays qualitative until she approves figures.
+# Claims about technology, partners, figures or patents need Vanessa's approval first (D006).
 
 meta:
   title: "Itera Materials · Recycled carbon fibre"
-  description: "Itera Materials turns carbon fibre composite scrap into reusable carbon fibre by solvolysis, so a high-performance material goes back into production instead of landfill."
-  ogDescription: "Carbon fibre is too valuable to waste. Recycled carbon fibre from composite scrap, by solvolysis."
+  description: "Itera Materials recovers carbon fibre from composite waste through solvolysis, giving a high-value material a second life."
+  ogDescription: "Recycled carbon fibre from composite waste, through solvolysis."
 
 skipLink: "Skip to content"
 
 nav:
   label: "Main"
-  process: "Process"
-  work: "Work with us"
+  approach: "Approach"
+  partners: "Work with us"
   contact: "Contact"
   languages: "Language"
 
 hero:
   eyebrow: "Recycled carbon fibre"
-  title: "Carbon fibre is too valuable to waste."
-  lead: "We turn composite scrap into reusable carbon fibre, so a high-performance material goes back into production instead of landfill."
-  primary: "I have composite waste"
-  secondary: "I need recycled fibre"
-
-why:
-  label: "Why Itera"
-  items:
-    - value: "Dissolved"
-      label: "The resin is dissolved by solvolysis, never burned"
-    - value: "Clean"
-      label: "Resin removed, fibre surface preserved"
-    - value: "Long"
-      label: "Fibres kept long, not ground to dust"
-    - value: "Your form"
-      label: "Long, chopped or milled fibre for your process"
+  title: "Carbon fibre, given a second life."
+  lead: "Itera Materials recovers carbon fibre from composite waste and returns it to industry, turning a hard-to-recycle residue into a valuable raw material."
+  primary: "Get in touch"
+  secondary: "Our approach"
 
 problem:
-  title: "Carbon fibre deserves better than landfill"
+  title: "A high-value material that too often goes to waste"
   body: "Carbon fibre composites make aircraft, vehicles, wind turbines and sports equipment lighter and stronger. Producing the fibre is energy-intensive, yet production scrap and end-of-life parts are still widely landfilled or incinerated."
   callout: "We believe that fibre should be recovered and used again."
 
 approach:
-  title: "We dissolve the resin, not the fibre"
+  title: "Our approach: solvolysis"
   intro: "Rather than burning the resin away, solvolysis uses a chemical process to dissolve it, separating the carbon fibres so they can be cleaned and reused."
   steps:
     - title: "Collect"
-      body: "Composite waste from almost any industry: production offcuts, prepreg scrap and end-of-life parts."
+      body: "Composite waste: production offcuts, prepreg scrap and end-of-life parts."
     - title: "Recover"
       body: "Solvolysis dissolves the resin matrix and frees the carbon fibres."
     - title: "Return"
-      body: "Clean fibre goes back into production."
+      body: "Recycled carbon fibre goes back into new products and applications."
 
 partners:
-  title: "Two ways to work with us"
-  intro: "We work on both sides of the composites value chain."
-  waste:
-    title: "Have composite waste?"
-    body: "Turn a disposal problem into a resource. Our process handles carbon fibre composite scrap from almost any industry, including:"
-    items:
-      - "Production scrap from carbon fibre and prepreg makers"
-      - "Wind-blade spar caps"
-      - "Pressure vessels and hydrogen tanks"
-      - "Aerospace, motorsport and sporting-goods scrap"
-    note: "Epoxy and most other thermoset composites."
-  fibre:
-    title: "Need recycled fibre?"
-    body: "Every application has its own requirements. We supply where the recycled fibre meets them, starting with wind energy. It suits:"
-    items:
-      - "Nonwovens and mats"
-      - "Thermoplastic compounds for injection moulding and 3D printing"
-      - "Tapes and yarns"
-      - "Moulding compounds (SMC and BMC)"
-    note: "Not yet for structural aerospace parts."
+  title: "Who we work with"
+  intro: "We work with partners on both sides of the composites value chain."
+  groups:
+    - title: "Companies with composite waste"
+      body: "We take in carbon fibre waste from almost any industry: production offcuts, prepreg scrap and end-of-life parts, including from wind energy."
+    - title: "Users of recycled fibre"
+      body: "Every application has its own requirements, and some industries set very strict ones. We supply applications where the recycled fibre meets them, starting with wind energy."
 
 contact:
-  title: "Let's close the loop on carbon fibre"
+  title: "Let's talk"
   body: "Whether you have composite waste, need recycled carbon fibre or want to support our work, we would like to hear from you."
 
 footer:

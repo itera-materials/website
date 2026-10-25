@@ -6,7 +6,10 @@ confidential material, partner names, figures or patent details unless Vanessa h
 
 Workspace context, decisions and approvals: the `workspace` repo (`CLAUDE.md`, `docs/`).
 
-- Text lives in `src/content/home/{en,fr}.yaml`, same keys in both (the schema in
+- Two versions for now (D019): **classic** (live, `src/components/HomeClassic.astro`, text in
+  `src/content/home/`, style `vendor/design-system-classic`) and **industrial** (preview at
+  `/preview/industrial/`, `HomeIndustrial.astro`, `src/content/home-industrial/`, `vendor/design-system`).
+- Text lives in `src/content/home*/{en,fr}.yaml`, same keys in both (the schema in
   `src/content.config.ts` fails the build otherwise). French: non-breaking space before `: ; ! ?`.
 - Style comes only from `vendor/design-system/` (synced from a tagged release, never edited here);
   no colour literals in `src/`. A missing component belongs in the design-system repo.

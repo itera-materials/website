@@ -1,5 +1,7 @@
 ---
-// The one-page site. Text comes from src/content/home/<lang>.yaml; style only from design-system classes.
+// Industrial version (preview at /preview/industrial/, not indexed, D019): text from
+// src/content/home-industrial/<lang>.yaml, style from design-system 1.0.
+import "../../vendor/design-system/dist/itera.css";
 import { getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
 import logo from "../../vendor/design-system/dist/logo/itera-logo-on-dark.svg?raw";
@@ -9,18 +11,19 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const entry = await getEntry("home", lang);
-if (!entry) throw new Error(`missing src/content/home/${lang}.yaml`);
+const entry = await getEntry("homeIndustrial", lang);
+if (!entry) throw new Error(`missing src/content/home-industrial/${lang}.yaml`);
 const t = entry.data;
-const home = lang === "fr" ? "/fr/" : "/";
+const paths = { en: "/preview/industrial/", fr: "/fr/preview/industrial/" };
+const home = paths[lang];
 const languages = [
-  { code: "en", label: "EN", href: "/" },
-  { code: "fr", label: "FR", href: "/fr/" },
+  { code: "en", label: "EN", href: paths.en },
+  { code: "fr", label: "FR", href: paths.fr },
 ] as const;
 const year = new Date().getFullYear();
 ---
 
-<Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription}>
+<Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription} paths={paths} noindex>
   <a class="skip-link" href="#main">{t.skipLink}</a>
 
   <header class="site-header">

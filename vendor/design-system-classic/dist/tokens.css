@@ -1,0 +1,34 @@
+/* Itera design tokens, generated from brand 0.1.0 by scripts/build.py. Do not edit. */
+:root {
+  --color-bg: #f6f5f1;
+  --color-bg-alt: #ecebe5;
+  --color-surface: #ffffff;
+  --color-text: #1d2125;
+  --color-text-strong: #2a2f35;
+  --color-text-muted: #5c636b;
+  --color-line: #d9d7cf;
+  --color-accent: #2f8f6b;
+  --color-accent-strong: #1f6b4f;
+  --color-accent-deep: #175a42;
+  --color-accent-light: #8fd3b6;
+  --color-inverse-bg: #14171a;
+  --color-inverse-bg-deep: #0d0f11;
+  --color-inverse-text: #ffffff;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --text-xs: 0.78rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-md: 1.15rem;
+  --text-lg: 1.3rem;
+  --text-xl: 2.4rem;
+  --text-2xl: 4.2rem;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --space-section: 90px;
+  --content-max: 1080px;
+  --header-height: 64px;
+}
