@@ -27,6 +27,7 @@ PAGES = [
 ALLOWED_URL = re.compile(
     rf"^https://{re.escape(DOMAIN)}/|^http://www\.w3\.org/2000/svg$|^https://schema\.org$"
     r"|^https://gc\.zgo\.at/count\.v\d+\.js$|^https://[a-z0-9-]+\.goatcounter\.com/count$"
+    r"|^https://www\.linkedin\.com/company/itera-materials/$"
 )
 URL = re.compile(r"""(?:https?:)?//[^\s"'<>)]+""")
 SCRIPT = re.compile(r"<script(?P<attrs>[^>]*)>(?P<body>.*?)</script>", re.S)
