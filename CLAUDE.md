@@ -10,5 +10,7 @@ Workspace context, decisions and approvals: the `workspace` repo (`CLAUDE.md`, `
   `src/content.config.ts` fails the build otherwise). French: non-breaking space before `: ; ! ?`.
 - Style comes only from `vendor/design-system/` (synced from a tagged release, never edited here);
   no colour literals in `src/`. A missing component belongs in the design-system repo.
-- No cookies, analytics, web fonts from third parties, client JavaScript or third-party requests.
+- No cookies, web fonts or third-party requests; the only scripts are the Organization JSON-LD and
+  Plausible once `src/analytics.ts` has its id (D021). The privacy notice must match what runs.
+- New pages go into `src/pages/sitemap.xml.ts` and `PAGES` in `scripts/check_site.py`.
 - `just test` before every commit; `just serve` to preview at http://localhost:4321.

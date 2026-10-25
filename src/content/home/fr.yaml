@@ -52,4 +52,5 @@ contact:
   body: "Que vous ayez des déchets composites, besoin de fibre de carbone recyclée ou envie de soutenir notre projet, nous serions ravis d'échanger avec vous."
 
 footer:
-  hosting: "Hébergé par GitHub Pages · Sans cookies ni suivi"
+  note: "Sans cookies"
+  privacy: "Confidentialité"

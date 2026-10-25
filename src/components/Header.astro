@@ -1,0 +1,37 @@
+---
+// Site header for every page: logo, section links on the home page, language switch.
+import { getEntry } from "astro:content";
+import logo from "../../vendor/design-system/dist/logo/itera-logo-on-dark.svg?url";
+
+interface Props {
+  lang: "en" | "fr";
+  paths: { en: string; fr: string };
+}
+
+const { lang, paths } = Astro.props;
+const entry = await getEntry("home", lang);
+if (!entry) throw new Error(`missing src/content/home/${lang}.yaml`);
+const t = entry.data;
+const home = lang === "fr" ? "/fr/" : "/";
+const languages = [
+  { code: "en", label: "EN", href: paths.en },
+  { code: "fr", label: "FR", href: paths.fr },
+] as const;
+---
+
+<a class="skip-link" href="#main">{t.skipLink}</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href={home}><img src={logo} alt="Itera Materials" width="81" height="44" /></a>
+    <nav class="nav" aria-label={t.nav.label}>
+      <a href={`${home}#approach`}>{t.nav.approach}</a>
+      <a href={`${home}#partners`}>{t.nav.partners}</a>
+      <a href={`${home}#contact`}>{t.nav.contact}</a>
+      <span class="lang-switch" role="group" aria-label={t.nav.languages}>
+        {languages.map((l) => (
+          <a href={l.href} hreflang={l.code} lang={l.code} aria-current={l.code === lang ? "true" : undefined}>{l.label}</a>
+        ))}
+      </span>
+    </nav>
+  </div>
+</header>

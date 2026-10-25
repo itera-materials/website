@@ -1,18 +1,29 @@
 ---
-// Page shell: head and language alternates. The page imports the design-system stylesheet
-// (inlined at build).
+// Page shell: head, language alternates, social preview, organisation data for search engines and,
+// when switched on, Plausible (D021). The page imports the design-system stylesheet (inlined).
 import favicon from "../../vendor/design-system/dist/logo/itera-favicon.svg?url";
+import { PLAUSIBLE_INIT, plausibleScript } from "../analytics";
 
 interface Props {
   lang: "en" | "fr";
   title: string;
   description: string;
   ogDescription: string;
+  paths: { en: string; fr: string };
 }
 
-const { lang, title, description, ogDescription } = Astro.props;
-const paths = { en: "/", fr: "/fr/" };
+const { lang, title, description, ogDescription, paths } = Astro.props;
 const url = (l: "en" | "fr") => new URL(paths[l], Astro.site).href;
+const site = new URL("/", Astro.site).href;
+const organisation = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Itera Materials",
+  url: site,
+  logo: new URL("/logo.png", Astro.site).href,
+  email: "contact@iteramaterials.com",
+  description,
+};
 ---
 
 <!doctype html>
@@ -31,7 +42,15 @@ const url = (l: "en" | "fr") => new URL(paths[l], Astro.site).href;
     <meta property="og:url" content={url(lang)} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_GB"} />
+    <meta property="og:image" content={new URL("/og.png", Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Itera Materials · Recycled carbon fibre" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href={favicon} type="image/svg+xml" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organisation)} />
+    {plausibleScript && <script async is:inline src={plausibleScript}></script>}
+    {plausibleScript && <script is:inline set:html={PLAUSIBLE_INIT} />}
   </head>
   <body>
     <slot />

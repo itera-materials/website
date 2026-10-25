@@ -1,0 +1,22 @@
+---
+// Site footer for every page: copyright, cookie note and the link to the privacy notice.
+import { getEntry } from "astro:content";
+
+interface Props {
+  lang: "en" | "fr";
+}
+
+const { lang } = Astro.props;
+const entry = await getEntry("home", lang);
+if (!entry) throw new Error(`missing src/content/home/${lang}.yaml`);
+const t = entry.data;
+const privacy = lang === "fr" ? "/fr/confidentialite/" : "/privacy/";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© {year} Itera Materials</span>
+    <span>{t.footer.note} · <a href={privacy}>{t.footer.privacy}</a></span>
+  </div>
+</footer>

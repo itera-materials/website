@@ -1,0 +1,25 @@
+# Privacy notice, English. Same keys as fr.yaml. Sections with `analytics: true` appear only while
+# Plausible is switched on (src/analytics.ts, D021).
+
+meta:
+  title: "Privacy · Itera Materials"
+  description: "How the Itera Materials website handles your data: no cookies, privacy-friendly visit statistics, hosting and your rights."
+  ogDescription: "How the Itera Materials website handles your data."
+
+title: "Privacy"
+updated: "Last updated: 25 October 2026"
+
+sections:
+  - title: "Who we are"
+    body: "This website belongs to Itera Materials. You can reach us at contact@iteramaterials.com. Full company details will be added to this page."
+  - title: "No cookies"
+    body: "This site sets no cookies, shows no advertising and does not follow you across other websites."
+  - title: "Visit statistics"
+    analytics: true
+    body: "We count visits with Plausible Analytics, an open-source, privacy-friendly service hosted in the European Union. It uses no cookies and stores no IP address or other information that identifies you. It records only aggregate figures: the page visited, the website that sent you here, your country, the type of device and browser, and clicks on our email address. We use these figures only to understand how the site is found and used."
+  - title: "Hosting"
+    body: "The site is hosted by GitHub Pages (GitHub, Inc., United States). Like any web server, GitHub processes your IP address to deliver the pages and may keep it for a short time in its server logs for security. GitHub's privacy statement explains how."
+  - title: "If you write to us"
+    body: "We use your message and email address only to answer you, and we do not share them with anyone else."
+  - title: "Your rights"
+    body: "Under the EU General Data Protection Regulation you can ask what personal data we hold about you and have it corrected or deleted: write to contact@iteramaterials.com. You can also complain to the French data protection authority (CNIL)."

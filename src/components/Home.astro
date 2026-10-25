@@ -4,7 +4,8 @@
 import "../../vendor/design-system/dist/itera.css";
 import { getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
-import logo from "../../vendor/design-system/dist/logo/itera-logo-on-dark.svg?url";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
 
 interface Props {
   lang: "en" | "fr";
@@ -14,32 +15,11 @@ const { lang } = Astro.props;
 const entry = await getEntry("home", lang);
 if (!entry) throw new Error(`missing src/content/home/${lang}.yaml`);
 const t = entry.data;
-const home = lang === "fr" ? "/fr/" : "/";
-const languages = [
-  { code: "en", label: "EN", href: "/" },
-  { code: "fr", label: "FR", href: "/fr/" },
-] as const;
-const year = new Date().getFullYear();
+const paths = { en: "/", fr: "/fr/" };
 ---
 
-<Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription}>
-  <a class="skip-link" href="#main">{t.skipLink}</a>
-
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href={home}><img src={logo} alt="Itera Materials" width="81" height="44" /></a>
-      <nav class="nav" aria-label={t.nav.label}>
-        <a href="#approach">{t.nav.approach}</a>
-        <a href="#partners">{t.nav.partners}</a>
-        <a href="#contact">{t.nav.contact}</a>
-        <span class="lang-switch" role="group" aria-label={t.nav.languages}>
-          {languages.map((l) => (
-            <a href={l.href} hreflang={l.code} lang={l.code} aria-current={l.code === lang ? "true" : undefined}>{l.label}</a>
-          ))}
-        </span>
-      </nav>
-    </div>
-  </header>
+<Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription} paths={paths}>
+  <Header lang={lang} paths={paths} />
 
   <main id="main">
     <section class="hero">
@@ -103,10 +83,5 @@ const year = new Date().getFullYear();
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <span>© {year} Itera Materials</span>
-      <span>{t.footer.hosting}</span>
-    </div>
-  </footer>
+  <Footer lang={lang} />
 </Base>

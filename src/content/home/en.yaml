@@ -52,4 +52,5 @@ contact:
   body: "Whether you have composite waste, need recycled carbon fibre or want to support our work, we would like to hear from you."
 
 footer:
-  hosting: "Hosted by GitHub Pages · No cookies, no tracking"
+  note: "No cookies"
+  privacy: "Privacy"

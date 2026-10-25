@@ -1,0 +1,25 @@
+# Politique de confidentialité, français. Mêmes clés que en.yaml. Les sections `analytics: true`
+# n'apparaissent que lorsque Plausible est activé (src/analytics.ts, D021).
+
+meta:
+  title: "Confidentialité · Itera Materials"
+  description: "Comment le site d'Itera Materials traite vos données : pas de cookies, statistiques de visite respectueuses de la vie privée, hébergement et vos droits."
+  ogDescription: "Comment le site d'Itera Materials traite vos données."
+
+title: "Confidentialité"
+updated: "Dernière mise à jour : 25 octobre 2026"
+
+sections:
+  - title: "Qui nous sommes"
+    body: "Ce site appartient à Itera Materials. Vous pouvez nous écrire à contact@iteramaterials.com. Les informations complètes sur la société seront ajoutées à cette page."
+  - title: "Pas de cookies"
+    body: "Ce site ne dépose aucun cookie, n'affiche aucune publicité et ne vous suit pas sur d'autres sites."
+  - title: "Statistiques de visite"
+    analytics: true
+    body: "Nous comptons les visites avec Plausible Analytics, un service open source et respectueux de la vie privée, hébergé dans l'Union européenne. Il n'utilise aucun cookie et ne conserve ni adresse IP ni autre information permettant de vous identifier. Il n'enregistre que des chiffres agrégés : la page consultée, le site qui vous a amené ici, votre pays, le type d'appareil et de navigateur, et les clics sur notre adresse e-mail. Nous utilisons ces chiffres uniquement pour comprendre comment le site est trouvé et utilisé."
+  - title: "Hébergement"
+    body: "Le site est hébergé par GitHub Pages (GitHub, Inc., États-Unis). Comme tout serveur web, GitHub traite votre adresse IP pour afficher les pages et peut la conserver brièvement dans ses journaux à des fins de sécurité. La déclaration de confidentialité de GitHub en précise les modalités."
+  - title: "Si vous nous écrivez"
+    body: "Nous utilisons votre message et votre adresse e-mail uniquement pour vous répondre et ne les communiquons à personne."
+  - title: "Vos droits"
+    body: "Conformément au Règlement général sur la protection des données (RGPD), vous pouvez demander quelles données personnelles nous détenons sur vous et les faire rectifier ou effacer : écrivez à contact@iteramaterials.com. Vous pouvez aussi adresser une réclamation à la CNIL."

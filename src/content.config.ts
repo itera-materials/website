@@ -31,8 +31,19 @@ const home = defineCollection({
     approach: z.strictObject({ title: z.string(), intro: z.string(), steps: z.array(block).length(3) }),
     partners: z.strictObject({ title: z.string(), intro: z.string(), groups: z.array(block).length(2) }),
     contact: z.strictObject({ title: z.string(), body: z.string() }),
-    footer: z.strictObject({ hosting: z.string() }),
+    footer: z.strictObject({ note: z.string(), privacy: z.string() }),
   }),
 });
 
-export const collections = { home };
+// Privacy notice (D021): sections marked `analytics: true` show only while Plausible is on.
+const privacy = defineCollection({
+  loader: glob({ pattern: "*.yaml", base: "src/content/privacy" }),
+  schema: z.strictObject({
+    meta,
+    title: z.string(),
+    updated: z.string(),
+    sections: z.array(z.strictObject({ title: z.string(), body: z.string(), analytics: z.boolean().default(false) })).min(1),
+  }),
+});
+
+export const collections = { home, privacy };

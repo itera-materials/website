@@ -1,0 +1,42 @@
+---
+// Privacy notice (D021). Text from src/content/privacy/<lang>.yaml; the analytics section shows
+// only while Plausible is on (src/analytics.ts).
+import "../../vendor/design-system/dist/itera.css";
+import { getEntry } from "astro:content";
+import { plausibleScript } from "../analytics";
+import Base from "../layouts/Base.astro";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+
+interface Props {
+  lang: "en" | "fr";
+}
+
+const { lang } = Astro.props;
+const entry = await getEntry("privacy", lang);
+if (!entry) throw new Error(`missing src/content/privacy/${lang}.yaml`);
+const t = entry.data;
+const paths = { en: "/privacy/", fr: "/fr/confidentialite/" };
+const sections = t.sections.filter((s) => !s.analytics || plausibleScript);
+---
+
+<Base lang={lang} title={t.meta.title} description={t.meta.description} ogDescription={t.meta.ogDescription} paths={paths}>
+  <Header lang={lang} paths={paths} />
+  <main id="main">
+    <section class="section">
+      <div class="wrap">
+        <h2>{t.title}</h2>
+        <p class="intro">{t.updated}</p>
+        <div class="two-col">
+          {sections.map((s) => (
+            <div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} />
+</Base>
