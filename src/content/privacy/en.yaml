@@ -19,6 +19,8 @@ sections:
     body: "We count visits with GoatCounter, an open-source, privacy-friendly service operated from Ireland, with data stored in Finland and Germany. It uses no cookies and stores no IP address or other information that identifies you. It records only aggregate figures: the page visited, the website that sent you here, your country and region, your language, the type of browser, system and screen, and clicks on our email address. We use these figures only to understand how the site is found and used."
   - title: "Hosting"
     body: "The site is hosted by GitHub Pages (GitHub, Inc., United States). Like any web server, GitHub processes your IP address to deliver the pages and may keep it for a short time in its server logs for security. GitHub's privacy statement explains how."
+  - title: "Our LinkedIn page"
+    body: "We have a company page on LinkedIn. LinkedIn decides how it processes your data when you visit, follow or interact with it; its privacy policy explains how. LinkedIn gives us aggregate statistics about our page, such as followers, page views and how far our posts reach, which we read through LinkedIn's official tools for page administrators. We use them only to understand how our page is doing and do not combine them with the visit statistics of this site."
   - title: "If you write to us"
     body: "We use your message and email address only to answer you, and we do not share them with anyone else."
   - title: "Your rights"
