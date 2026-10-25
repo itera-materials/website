@@ -3,52 +3,77 @@
 
 meta:
   title: "Itera Materials · Fibre de carbone recyclée"
-  description: "Itera Materials récupère la fibre de carbone des déchets composites par solvolyse et donne une seconde vie à un matériau de grande valeur."
-  ogDescription: "Fibre de carbone recyclée à partir de déchets composites, par solvolyse."
+  description: "Itera Materials transforme les chutes de composites à fibre de carbone en fibre réutilisable par solvolyse : un matériau de haute performance retourne en production au lieu de finir en décharge."
+  ogDescription: "La fibre de carbone est trop précieuse pour être gaspillée. Fibre de carbone recyclée à partir de chutes composites, par solvolyse."
 
 skipLink: "Aller au contenu"
 
 nav:
   label: "Navigation principale"
-  approach: "Notre approche"
-  partners: "Collaborer"
+  process: "Procédé"
+  work: "Collaborer"
   contact: "Contact"
   languages: "Langue"
 
 hero:
   eyebrow: "Fibre de carbone recyclée"
-  title: "Une seconde vie pour la fibre de carbone."
-  lead: "Itera Materials récupère la fibre de carbone contenue dans les déchets composites et la réintroduit dans l'industrie : un résidu difficile à recycler devient une matière première de valeur."
-  primary: "Nous contacter"
-  secondary: "Notre approche"
+  title: "La fibre de carbone est trop précieuse pour être gaspillée."
+  lead: "Nous transformons les chutes composites en fibre de carbone réutilisable : un matériau de haute performance retourne en production au lieu de finir en décharge."
+  primary: "J'ai des déchets composites"
+  secondary: "Je cherche de la fibre recyclée"
+
+why:
+  label: "Pourquoi Itera"
+  items:
+    - value: "Dissoute"
+      label: "La résine est dissoute par solvolyse, jamais brûlée"
+    - value: "Propre"
+      label: "Résine éliminée, surface de la fibre préservée"
+    - value: "Longue"
+      label: "Des fibres gardées longues, pas réduites en poussière"
+    - value: "Sur mesure"
+      label: "Fibre longue, coupée ou broyée selon votre procédé"
 
 problem:
-  title: "Un matériau de grande valeur, trop souvent perdu"
+  title: "La fibre de carbone mérite mieux que la décharge"
   body: "Les composites à fibre de carbone rendent avions, véhicules, éoliennes et équipements sportifs plus légers et plus résistants. Produire cette fibre demande beaucoup d'énergie, et pourtant les chutes de production et les pièces en fin de vie sont encore largement mises en décharge ou incinérées."
   callout: "Nous pensons que cette fibre doit être récupérée et réutilisée."
 
 approach:
-  title: "Notre approche : la solvolyse"
+  title: "Nous dissolvons la résine, pas la fibre"
   intro: "Plutôt que de brûler la résine, la solvolyse la dissout grâce à un procédé chimique, ce qui permet de séparer les fibres de carbone pour les nettoyer et les réutiliser."
   steps:
     - title: "Collecter"
-      body: "Les déchets composites : chutes de production, rebuts de préimprégnés et pièces en fin de vie."
+      body: "Des déchets composites de presque toutes les industries : chutes de production, rebuts de préimprégnés et pièces en fin de vie."
     - title: "Récupérer"
       body: "La solvolyse dissout la matrice de résine et libère les fibres de carbone."
     - title: "Réintroduire"
-      body: "La fibre de carbone recyclée retrouve sa place dans de nouveaux produits et applications."
+      body: "La fibre propre retourne en production."
 
 partners:
-  title: "Avec qui nous travaillons"
-  intro: "Nous travaillons avec des partenaires des deux côtés de la chaîne de valeur des composites."
-  groups:
-    - title: "Producteurs de déchets composites"
-      body: "Nous acceptons les déchets de fibre de carbone de presque toutes les industries : chutes de production, rebuts de préimprégnés et pièces en fin de vie, y compris de l'éolien."
-    - title: "Utilisateurs de fibre recyclée"
-      body: "Chaque application a ses exigences, et certaines industries en imposent de très strictes. Nous fournissons les applications dont la fibre recyclée satisfait les exigences, à commencer par l'éolien."
+  title: "Deux façons de travailler avec nous"
+  intro: "Nous travaillons des deux côtés de la chaîne de valeur des composites."
+  waste:
+    title: "Vous avez des déchets composites ?"
+    body: "Transformez un problème d'élimination en ressource. Notre procédé traite les chutes de composites à fibre de carbone de presque toutes les industries, notamment :"
+    items:
+      - "Chutes de production des fabricants de fibre de carbone et de préimprégnés"
+      - "Semelles de longerons de pales d'éoliennes"
+      - "Réservoirs sous pression et réservoirs d'hydrogène"
+      - "Chutes de l'aéronautique, du sport automobile et des articles de sport"
+    note: "Composites époxy et la plupart des autres composites thermodurcissables."
+  fibre:
+    title: "Vous cherchez de la fibre recyclée ?"
+    body: "Chaque application a ses exigences. Nous fournissons là où la fibre recyclée y répond, à commencer par l'éolien. Elle convient pour :"
+    items:
+      - "Non-tissés et mats"
+      - "Compounds thermoplastiques pour l'injection et l'impression 3D"
+      - "Rubans et fils"
+      - "Compounds de moulage (SMC et BMC)"
+    note: "Pas encore pour les pièces structurelles aéronautiques."
 
 contact:
-  title: "Parlons-en"
+  title: "Refermons la boucle de la fibre de carbone"
   body: "Que vous ayez des déchets composites, besoin de fibre de carbone recyclée ou envie de soutenir notre projet, nous serions ravis d'échanger avec vous."
 
 footer:

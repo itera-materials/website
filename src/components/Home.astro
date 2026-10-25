@@ -2,7 +2,7 @@
 // The one-page site. Text comes from src/content/home/<lang>.yaml; style only from design-system classes.
 import { getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
-import mark from "../../vendor/design-system/dist/logo/itera-mark-on-dark.svg?raw";
+import logo from "../../vendor/design-system/dist/logo/itera-logo-on-dark.svg?raw";
 
 interface Props {
   lang: "en" | "fr";
@@ -25,13 +25,10 @@ const year = new Date().getFullYear();
 
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href={home} aria-label="Itera Materials">
-        <Fragment set:html={mark.replace("<svg", '<svg aria-hidden="true" focusable="false"')} />
-        <span aria-hidden="true">ITERA <small>MATERIALS</small></span>
-      </a>
+      <a class="brand" href={home}><Fragment set:html={logo} /></a>
       <nav class="nav" aria-label={t.nav.label}>
-        <a href="#approach">{t.nav.approach}</a>
-        <a href="#partners">{t.nav.partners}</a>
+        <a href="#process">{t.nav.process}</a>
+        <a href="#work">{t.nav.work}</a>
         <a href="#contact">{t.nav.contact}</a>
         <span class="lang-switch" role="group" aria-label={t.nav.languages}>
           {languages.map((l) => (
@@ -44,14 +41,31 @@ const year = new Date().getFullYear();
 
   <main id="main">
     <section class="hero">
+      <svg class="hero__ring" viewBox="24 8 272 304" aria-hidden="true" focusable="false">
+        <path d="M 263.9 142 L 263.9 220 L 160 280 L 56.1 220 L 56.1 100 L 160 40 L 228 79.3" fill="none" stroke="currentColor" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="263.9" cy="100" r="19" fill="currentColor"></circle>
+      </svg>
       <div class="wrap">
         <p class="eyebrow">{t.hero.eyebrow}</p>
         <h1>{t.hero.title}</h1>
         <p class="lead">{t.hero.lead}</p>
         <div class="actions">
-          <a class="btn" href="#contact">{t.hero.primary}</a>
-          <a class="btn btn--ghost" href="#approach">{t.hero.secondary}</a>
+          <a class="btn" href="#work">{t.hero.primary}</a>
+          <a class="btn btn--dark" href="#work">{t.hero.secondary}</a>
         </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label={t.why.label}>
+      <div class="wrap">
+        <ul class="stats__list">
+          {t.why.items.map((item, i) => (
+            <li class:list={["stat", { "stat--accent": i % 2 === 1 }]}>
+              <span class="stat__value">{item.value}</span>
+              <span class="stat__label">{item.label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
 
@@ -65,7 +79,7 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section section--alt" id="approach">
+    <section class="section section--alt" id="process">
       <div class="wrap">
         <h2>{t.approach.title}</h2>
         <p class="intro">{t.approach.intro}</p>
@@ -80,15 +94,17 @@ const year = new Date().getFullYear();
       </div>
     </section>
 
-    <section class="section" id="partners">
+    <section class="section" id="work">
       <div class="wrap">
         <h2>{t.partners.title}</h2>
         <p class="intro">{t.partners.intro}</p>
-        <div class="two-col">
-          {t.partners.groups.map((g) => (
-            <div>
-              <h3>{g.title}</h3>
-              <p>{g.body}</p>
+        <div class="cards">
+          {[t.partners.waste, t.partners.fibre].map((a, i) => (
+            <div class:list={["card", { "card--carbon": i === 1 }]}>
+              <h3>{a.title}</h3>
+              <p>{a.body}</p>
+              <ul class="list">{a.items.map((item) => <li>{item}</li>)}</ul>
+              <p class="list__note">{a.note}</p>
             </div>
           ))}
         </div>
